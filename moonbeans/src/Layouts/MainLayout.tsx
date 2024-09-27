@@ -8,7 +8,7 @@ const MainLayout = (children: React.ReactNode) => {
   return (
     <div>
       <Header />
-      <main>
+      <main className='p-6 bg-white'>
         <Outlet />
       </main>
       <Footer />

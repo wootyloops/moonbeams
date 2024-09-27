@@ -1,7 +1,11 @@
 {
   "name": "moonbeans",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A fake coffee website.",
+  "author": "nickb",
+  "license": "MIT",
+  "homepage": "https://github.com/wootyloops/moonbeans",
   "type": "module",
   "scripts": {
     "dev": "vite",
