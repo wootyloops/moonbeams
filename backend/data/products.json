@@ -12,5 +12,12 @@
     "description": "Show your Moon Bean pride!",
     "price": 25.99,
     "inStock": false
+  },
+  {
+    "name": "Celestial Roast",
+    "category": "coffee",
+    "description": "It's out of this world.",
+    "price": 32.99,
+    "inStock": true
   }
 ]

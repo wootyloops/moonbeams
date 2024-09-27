@@ -24,7 +24,7 @@ const ProductList = () => {
   })
 
   return (
-    <div>
+    <div className='grid gap-4 grid-cols-3'>
       {products || 'Could not fetch products.'}
     </div>
   )

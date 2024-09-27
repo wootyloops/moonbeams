@@ -5,10 +5,14 @@ import imgMoon from '../assets/moon.svg'
 
 const Header = () => {
   return (
-    <header className='flex mx-auto max-w-7x1 items-center p-6 text-amber-50'>
-      <div className='flex w-20'><img src={imgMoon} alt='The moon!'/></div>
-      <div className='text-5xl font-russo w-2/3 pl-4'><Link to='/'>Moon Beans</Link></div>
-      <div className='flex text-lg justify-items-stretch'>
+    <header className='flex mx-auto max-w-7x1 items-center p-6 text-amber-100'>
+      <div className='inline-flex w-3/4'>
+      <Link to='/'>
+        <div className='inline-flex w-20'><img src={imgMoon} alt='The moon!'/></div>
+        <div className='inline-flex text-5xl font-russo pl-4'>Moon Beans</div>
+      </Link>
+      </div>
+      <div className='text-lg justify-items-stretch'>
         <Nav />
       </div>
     </header>
