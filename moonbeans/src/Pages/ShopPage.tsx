@@ -3,7 +3,9 @@ import ProductList from '../Components/ProductList'
 
 const ShopPage = () => {
   return (
-    <ProductList />
+    <div className='w-3/4'>
+      <ProductList />
+    </div>
   )
 }
 

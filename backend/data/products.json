@@ -19,5 +19,19 @@
     "description": "It's out of this world.",
     "price": 32.99,
     "inStock": true
+  },
+  {
+    "name": "Moon Bean Coffee Mug",
+    "category": "accessories",
+    "description": "Imbibe your beans in style.",
+    "price": 12.99,
+    "inStock": true
+  },
+  {
+    "name": "Moon Bean Keychain",
+    "category": "accessories",
+    "description": "For the moonman on the go.",
+    "price": 9.99,
+    "inStock": false
   }
 ]

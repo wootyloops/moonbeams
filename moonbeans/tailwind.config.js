@@ -8,6 +8,9 @@ export default {
     extend: {
       fontFamily: {
         russo: ['"Russo One"']
+      },
+      animation: {
+        'moon-spin': 'spin 30s linear infinite'
       }
     },
   },
