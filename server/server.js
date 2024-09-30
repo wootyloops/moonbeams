@@ -1,20 +1,30 @@
 import express from 'express';
 import fs from 'fs';
 import cors from 'cors';
+import mongoose from 'mongoose';
+
+// https://www.freecodecamp.org/news/build-a-restful-api-using-node-express-and-mongodb/
+import { router } from  './routes/routes.js';
 
 const products = JSON.parse(fs.readFileSync('./data/products.json'));
 const port = process.env.PORT || 8000;
 const app = express();
 
 app.use(cors());
+app.use(express.json())
+app.use('/api', router);
 
-app.get('/api/products', (req, res) => {
-  res.json(products);
+// Test connection to database
+const dbConnectionString = process.env.DB_URL;
+mongoose.connect(dbConnectionString);
+const database = mongoose.connection;
+
+database.on('error', (error) => {
+  console.log(error);
+})
+database.once('connected', () => {
+  console.log('Database connected successfully!');
 })
 
-app.get('/api/products/:id', (req, res) => {
-  const id = parseInt(req.params.id);
-  res.json(products.filter((product) => product.id === id));
-})
-
+// Set up listener
 app.listen(port, () => console.log('Server is listening on port ' + port));

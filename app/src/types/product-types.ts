@@ -1,9 +1,10 @@
 export type TProduct = {
+    productID: number,
     name: string,
     category: string,
     description: string,
     price: number,
-    inStock: boolean
+    stock: number
 }
 
 export interface IProduct {
