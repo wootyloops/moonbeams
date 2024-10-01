@@ -8,9 +8,6 @@ const Nav = () => {
         <li key='home' className='inline-block lg:p-2'>
           <Link to='/'>Home</Link>
         </li>
-        <li key='about' className='inline-block lg:p-2'>
-          <Link to='/about'>About Us</Link>
-        </li>
         <li key='locations' className='inline-block lg:p-2'>
           <Link to='/locations'>Locations</Link>
         </li>
@@ -20,8 +17,8 @@ const Nav = () => {
         <li key='login' className='inline-block lg:p-2'>
           <Link to='/login'>Login</Link>
         </li>
-        <li key='cart' className='inline-block bg-amber-100 text-sky-950 rounded-md lg:py-2 lg:px-8 sm:px-2'>
-          <Link to='/cart'>Cart</Link>
+        <li key='cart' className='inline-block lg:py-2 sm:px-2'>
+          <button className='bg-amber-200 hover:bg-amber-100 text-sky-950 rounded-md px-8 py-2'>Cart</button>
         </li>
       </ul>
     </nav>

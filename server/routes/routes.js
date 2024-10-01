@@ -3,6 +3,12 @@ import { Product } from '../models/Product.js'
 
 export const router = express.Router();
 
+/////////////////////
+//
+// Product endpoints
+//
+/////////////////////
+
 // Add a new product
 router.post('/products/add', async (req, res) => {
   const data = new Product({
@@ -64,3 +70,33 @@ router.delete('/products/delete/:id', async (req, res) => {
     res.status(400).json({message: error.message})
   }
 });
+
+/////////////////////
+//
+// User endpoints
+//
+/////////////////////
+
+// Log in with an existing user
+router.post('/account/login', async (req, res) => {
+
+});
+// Sign up with a new user account
+router.post('/account/signup', async (req, res) => {
+
+});
+
+/////////////////////
+//
+// Shopping endpoints
+//
+/////////////////////
+
+// @TODO:
+
+// Design inspo:
+// https://github.com/ruslanzharkov/nodejs-shopping-cart
+
+// /cart
+// /cart/update
+// /cart/checkout
