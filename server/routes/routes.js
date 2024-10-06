@@ -86,6 +86,11 @@ router.post('/account/signup', async (req, res) => {
 
 });
 
+// Get a user's account information
+router.get('/account/:id', async (req, res) => {
+
+});
+
 /////////////////////
 //
 // Shopping endpoints
