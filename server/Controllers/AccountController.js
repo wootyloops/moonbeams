@@ -2,8 +2,6 @@
 
 // Probably want to rewrite this tbh
 
-import express from 'express';
-import * as bcrypt from bcryptjs;
 import { User } from '../models/User.js';
 import { createSecretToken } from '../util/SecretToken.js';
 
@@ -31,3 +29,8 @@ export const Signup = async (req, res, next) => {
     console.error(error);
   }
 }
+
+export const Login = async (req, res, next) => {
+  // stuff
+  next();
+};  

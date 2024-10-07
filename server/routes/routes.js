@@ -1,5 +1,7 @@
 import express from 'express';
 import { Product } from '../models/Product.js'
+import * as AccountHandler from '../Controllers/AccountController.js';
+import * as ProductHandler from '../Controllers/ProductController.js'
 
 export const router = express.Router();
 
@@ -10,6 +12,8 @@ export const router = express.Router();
 /////////////////////
 
 // Add a new product
+router.post('/products/add', ProductHandler.AddOne);
+/*
 router.post('/products/add', async (req, res) => {
   const data = new Product({
     productID: req.body.id,
@@ -27,26 +31,13 @@ router.post('/products/add', async (req, res) => {
     res.status(400).json({message: error.message});
   }
 });
+*/
 
 // Get all products
-router.get('/products', async (req, res) => {
-  try {
-    const data = await Product.find();
-    res.json(data);
-  } catch(error) {
-    res.status(500).json({message: error.message})
-  }
-});
+router.get('/products', ProductHandler.GetAll);
 
 // Get single product by productID
-router.get('/products/:id', async (req, res) => {
-  try {
-    const data = await Product.findOne({ productID: parseInt(req.params.id) });
-    res.json(data);
-  } catch(error) {
-    res.status(500).json({message: error.message})
-  }
-});
+router.get('/products/:id', ProductHandler.GetOne);
 
 // Update a product by productID
 router.patch('/products/update/:id', async (req, res) => {
@@ -78,13 +69,10 @@ router.delete('/products/delete/:id', async (req, res) => {
 /////////////////////
 
 // Log in with an existing user
-router.post('/account/login', async (req, res) => {
+router.post('/account/login', AccountHandler.Login);
 
-});
 // Sign up with a new user account
-router.post('/account/signup', async (req, res) => {
-
-});
+router.post('/account/signup', AccountHandler.Signup);
 
 // Get a user's account information
 router.get('/account/:id', async (req, res) => {
