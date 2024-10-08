@@ -3,14 +3,15 @@
 import mongoose from "mongoose";
 
 const dataSchema = new mongoose.Schema({
-  productID: {
-    required: true,
-    type: Number,
-    unique: true
-  },
   name: {
     required: true,
-    type: String
+    type: String,
+    unique: true
+  },
+  slug: {
+    required: true,
+    type: String,
+    unique: true
   },
   category: {
     required: true,

@@ -2,16 +2,6 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
 const dataSchema = new mongoose.Schema({
-  userID: {
-    required: true,
-    type: Number,
-    unique: true
-  },
-  userName: {
-    required: true,
-    type: String,
-    unique: true
-  },
   password: {
     required: true,
     type: String
@@ -21,19 +11,19 @@ const dataSchema = new mongoose.Schema({
     type: String,
     unique: true
   },
-  realName: {
-    required: true,
+  nickName: {
+    required: false,
     type: String
   },
   roles: {
     required: true,
-    type: Array,
-    default: ['user']
+    type: String,
+    default: 'user'
   }
 });
 
 dataSchema.pre("save", async function() {
   this.password = await bcrypt.hash(this.password, 12);
-})
+});
 
 export const User = mongoose.model('User', dataSchema);

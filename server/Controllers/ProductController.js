@@ -11,7 +11,7 @@ export const GetAll = async (req, res) => {
 
 export const GetOne = async (req, res) => {
   try {
-    const data = await Product.findOne({ productID: parseInt(req.params.id) });
+    const data = await Product.findOne({ _id: parseInt(req.params.id) });
     res.json(data);
   } catch(error) {
     res.status(500).json({message: error.message})
@@ -19,8 +19,6 @@ export const GetOne = async (req, res) => {
 };
 
 export const AddOne = async (req, res) => {
-
-  const id = (await Product.countDocuments()) + 1;
   const { 
     name, 
     category, 
@@ -29,10 +27,10 @@ export const AddOne = async (req, res) => {
     price, 
     stock 
   } = req.body;
-
+  
   const data = new Product({
-    productID: id,
     name: name,
+    slug: name.replaceAll(' ', '-').toLowerCase(),
     category: category,
     description: description,
     longDescription: longDescription,

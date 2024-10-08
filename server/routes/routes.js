@@ -13,25 +13,6 @@ export const router = express.Router();
 
 // Add a new product
 router.post('/products/add', ProductHandler.AddOne);
-/*
-router.post('/products/add', async (req, res) => {
-  const data = new Product({
-    productID: req.body.id,
-    name: req.body.name,
-    category: req.body.category,
-    description: req.body.description,
-    price: req.body.price,
-    stock: req.body.stock
-  });
-
-  try {
-    const dataToSave = await data.save();
-    res.status(200).json(dataToSave);
-  } catch (error) {
-    res.status(400).json({message: error.message});
-  }
-});
-*/
 
 // Get all products
 router.get('/products', ProductHandler.GetAll);

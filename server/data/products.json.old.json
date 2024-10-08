@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "name": "Lunar Blend",
     "category": "coffee",
     "description": "Our top seller!",
@@ -8,7 +7,6 @@
     "inStock": true
   },
   {
-    "id": 2,
     "name": "Moon Bean T-Shirt",
     "category": "apparel",
     "description": "Show your Moon Bean pride!",
@@ -16,7 +14,6 @@
     "inStock": false
   },
   {
-    "id": 3,
     "name": "Celestial Roast",
     "category": "coffee",
     "description": "It's out of this world.",
@@ -24,7 +21,6 @@
     "inStock": true
   },
   {
-    "id": 4,
     "name": "Moon Bean Coffee Mug",
     "category": "accessories",
     "description": "Imbibe your beans in style.",
@@ -32,7 +28,6 @@
     "inStock": true
   },
   {
-    "id": 5,
     "name": "Moon Bean Keychain",
     "category": "accessories",
     "description": "For the moonman on the go.",
