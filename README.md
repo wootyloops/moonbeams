@@ -52,6 +52,6 @@ All endpoints are available at http://localhost:5001/api.
 
 - GET `/products` - Get all products
 - GET `/products/<id>` - Get one product by its product ID
-- POST `/products/add` - Add a new product
-- PATCH `/products/update/<id>` - Update one product by its product ID
-- DELETE `/products/delete/<id>` - Delete one product by its product ID
+- POST `/products` - Add a new product
+- PATCH `/products/<id>` - Update one product by its product ID
+- DELETE `/products/<id>` - Delete one product by its product ID

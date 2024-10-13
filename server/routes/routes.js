@@ -1,5 +1,5 @@
 import express from 'express';
-import { Product } from '../models/Product.js'
+import { Product } from '../Models/Product.js'
 import * as AccountHandler from '../Controllers/AccountController.js';
 import * as ProductHandler from '../Controllers/ProductController.js'
 
@@ -12,7 +12,7 @@ export const router = express.Router();
 /////////////////////
 
 // Add a new product
-router.post('/products/add', ProductHandler.AddOne);
+router.post('/products', ProductHandler.AddOne);
 
 // Get all products
 router.get('/products', ProductHandler.GetAll);
@@ -21,7 +21,7 @@ router.get('/products', ProductHandler.GetAll);
 router.get('/products/:id', ProductHandler.GetOne);
 
 // Update a product by productID
-router.patch('/products/update/:id', async (req, res) => {
+router.patch('/products/:id', async (req, res) => {
   const updatedData = req.body;
   // const options = { new: true };
 
@@ -34,7 +34,7 @@ router.patch('/products/update/:id', async (req, res) => {
 });
 
 // Delete a product by productID
-router.delete('/products/delete/:id', async (req, res) => {
+router.delete('/products/:id', async (req, res) => {
   try {
     const data = await Product.deleteOne({ productID: parseInt(req.params.id) });
     res.send(data);
