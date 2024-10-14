@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import { handleError, handleSuccess } from '../Functions/FormHelpers';
 
 const LoginForm = () => {
   const [inputValue, setInputValue] = useState({
@@ -14,15 +16,30 @@ const LoginForm = () => {
     }); 
   };
 
-  // move to helpers file?
-  const handleError = (err:Error): void => {
-    console.log(err); 
-  }; 
-  const handleSuccess = (msg: String): void => {
-    console.log(msg); 
-  }; 
   const handleSubmit = async (e: any): Promise<void> => {
-
+    e.preventDefault();
+    try {
+      const { data } = await axios.post(
+        'http://localhost:5001/api/account/login',
+        {
+          ...inputValue,
+        },
+        { withCredentials: true }
+      );
+      const { success, message } = data;
+      if (success) {
+        handleSuccess(message);
+      } else {
+        handleError(message);
+      }
+    } catch(error) {
+      console.log(error);
+    }
+    setInputValue({
+      ...inputValue,
+      email: '',
+      password:''
+    });
   }; 
 
   return (
@@ -53,7 +70,6 @@ const LoginForm = () => {
         <button 
           className='block bg-sky-950 rounded-md p-2 text-amber-200' 
           type='submit' 
-          formMethod='post' 
           name='login'
           id='login'>Login</button>
       </form>

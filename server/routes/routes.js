@@ -2,6 +2,7 @@ import express from 'express';
 import { Product } from '../Models/Product.js'
 import * as AccountHandler from '../Controllers/AccountController.js';
 import * as ProductHandler from '../Controllers/ProductController.js'
+import { userVerification } from '../Middleware/AuthMiddleware.js';
 
 export const router = express.Router();
 
@@ -55,10 +56,8 @@ router.post('/account/login', AccountHandler.Login);
 // Sign up with a new user account
 router.post('/account/signup', AccountHandler.Signup);
 
-// Get a user's account information
-router.get('/account/:id', async (req, res) => {
-
-});
+// Verify a token
+router.post('/account/auth', userVerification); 
 
 /////////////////////
 //
