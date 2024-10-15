@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { handleError, handleSuccess } from '../Functions/FormHelpers';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
+  const navigate = useNavigate(); 
+  const [token, setToken] = useState<string>();
+  const [user, setUser] = useState<string>();
+
   const [inputValue, setInputValue] = useState({
     email: '', 
     password: '', 
@@ -29,6 +34,17 @@ const LoginForm = () => {
       const { success, message } = data;
       if (success) {
         handleSuccess(message);
+        const getUsername = async () => {
+          const { data } = await axios.post(
+            'http://localhost:5001/api/account/auth', 
+            {}, 
+            { withCredentials: true }
+          );
+          const { state, user } = data;
+          setUser(user);
+          console.log(user);
+        }
+        navigate('/'); 
       } else {
         handleError(message);
       }
