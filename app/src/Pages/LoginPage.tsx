@@ -1,8 +1,14 @@
-import React from 'react'
-
+import LoginForm from '../Components/LoginForm'
+import { Link } from 'react-router-dom';
 const LoginPage = () => {
+
+
   return (
-    <div>LoginPage</div>
+    <div>
+      <h2 className='text-3xl'>Login</h2>
+      <LoginForm />
+      <div>Need an account? <Link to='/signup'>Sign up here!</Link></div>
+    </div>
   )
 }
 

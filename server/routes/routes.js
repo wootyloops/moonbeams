@@ -1,5 +1,8 @@
 import express from 'express';
-import { Product } from '../models/Product.js'
+import { Product } from '../Models/Product.js'
+import * as AccountHandler from '../Controllers/AccountController.js';
+import * as ProductHandler from '../Controllers/ProductController.js'
+import { userVerification } from '../Middleware/AuthMiddleware.js';
 
 export const router = express.Router();
 
@@ -10,46 +13,16 @@ export const router = express.Router();
 /////////////////////
 
 // Add a new product
-router.post('/products/add', async (req, res) => {
-  const data = new Product({
-    productID: req.body.id,
-    name: req.body.name,
-    category: req.body.category,
-    description: req.body.description,
-    price: req.body.price,
-    stock: req.body.stock
-  });
-
-  try {
-    const dataToSave = await data.save();
-    res.status(200).json(dataToSave);
-  } catch (error) {
-    res.status(400).json({message: error.message});
-  }
-});
+router.post('/products', ProductHandler.AddOne);
 
 // Get all products
-router.get('/products', async (req, res) => {
-  try {
-    const data = await Product.find();
-    res.json(data);
-  } catch(error) {
-    res.status(500).json({message: error.message})
-  }
-});
+router.get('/products', ProductHandler.GetAll);
 
 // Get single product by productID
-router.get('/products/:id', async (req, res) => {
-  try {
-    const data = await Product.findOne({ productID: parseInt(req.params.id) });
-    res.json(data);
-  } catch(error) {
-    res.status(500).json({message: error.message})
-  }
-});
+router.get('/products/:id', ProductHandler.GetOne);
 
 // Update a product by productID
-router.patch('/products/update/:id', async (req, res) => {
+router.patch('/products/:id', async (req, res) => {
   const updatedData = req.body;
   // const options = { new: true };
 
@@ -62,7 +35,7 @@ router.patch('/products/update/:id', async (req, res) => {
 });
 
 // Delete a product by productID
-router.delete('/products/delete/:id', async (req, res) => {
+router.delete('/products/:id', async (req, res) => {
   try {
     const data = await Product.deleteOne({ productID: parseInt(req.params.id) });
     res.send(data);
@@ -78,13 +51,13 @@ router.delete('/products/delete/:id', async (req, res) => {
 /////////////////////
 
 // Log in with an existing user
-router.post('/account/login', async (req, res) => {
+router.post('/account/login', AccountHandler.Login);
 
-});
 // Sign up with a new user account
-router.post('/account/signup', async (req, res) => {
+router.post('/account/signup', AccountHandler.Signup);
 
-});
+// Verify a token
+router.post('/account/auth', userVerification); 
 
 /////////////////////
 //

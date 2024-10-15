@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Route,
   createBrowserRouter,
@@ -12,6 +11,7 @@ import AboutPage from './Pages/AboutPage';
 import ShopPage from './Pages/ShopPage';
 import LocationsPage from './Pages/LocationsPage';
 import LoginPage from './Pages/LoginPage';
+import AccountPage from './Pages/AccountPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +21,7 @@ const router = createBrowserRouter(
       <Route path='/shop' element={<ShopPage />} />
       <Route path='/locations' element={<LocationsPage />} />
       <Route path='/login' element={<LoginPage />} />
+      <Route path='/account' element={<AccountPage />} />
     </Route>
   )
 );
