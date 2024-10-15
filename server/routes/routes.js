@@ -57,7 +57,7 @@ router.post('/account/login', AccountHandler.Login);
 router.post('/account/signup', AccountHandler.Signup);
 
 // Verify a token
-router.get('/account/auth', userVerification); 
+router.post('/account/auth', userVerification); 
 
 /////////////////////
 //

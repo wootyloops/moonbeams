@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const navigate = useNavigate(); 
-  const [token, setToken] = useState<string>();
   const [user, setUser] = useState<string>();
 
+  // this has weird behavior and should probably be redone
   const [inputValue, setInputValue] = useState({
     email: '', 
     password: '', 
@@ -35,10 +35,9 @@ const LoginForm = () => {
       if (success) {
         handleSuccess(message);
         const getUsername = async () => {
-          const { data } = await axios.post(
+          const { data } = await axios.get(
             'http://localhost:5001/api/account/auth', 
-            {}, 
-            { withCredentials: true }
+            {}
           );
           const { state, user } = data;
           setUser(user);
