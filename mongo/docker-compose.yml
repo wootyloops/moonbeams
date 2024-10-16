@@ -5,10 +5,12 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: moonbeans
     volumes:
       - mongo_dbs:/data/db
     ports:
       - 27017:27017
+    build: .
   mongo-express:
     image: mongo-express
     restart: always
@@ -19,6 +21,5 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
       ME_CONFIG_BASICAUTH: false
-      MONGO_INITDB_DATABASE: moonbeans
 volumes:
   mongo_dbs:
