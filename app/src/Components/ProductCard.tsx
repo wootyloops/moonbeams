@@ -11,10 +11,13 @@ const ProductCard: FC<IProduct> = ({product}) => {
   return (
     <div className='p-4 bg-sky-100 rounded-md grid'>
       <div className='row-start-1 h-all'>
-        <img className='rounded-t-md' src={imgDefaultProduct} />
-        <h2 className='text-2xl text-sky-950'>{product.name}</h2>
+      <Link to={'/product/' + product.productID}>
+        <img alt={product.name} className={'rounded-t-md ' + (inStock ? '' : 'grayscale')} src={imgDefaultProduct} />
+        <h2 className='text-2xl text-sky-950'>
+          {product.name}
+        </h2>
+        </Link>
         <p className='h-all'>{product.description}</p>
-        <div className='block'><Link to={'/product/' + product.productID}>More info</Link></div>
       </div>
       { inStock ? 
         <button className='h-min w-1/2 bg-sky-950 hover:bg-sky-900 p-2 mt-2 text-amber-200 rounded-md row-start-3'>Add to Cart</button> 
