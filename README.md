@@ -12,7 +12,6 @@ The project is divided into two main sections: `server` contains the Express/Nod
 - Admin page for inventory/account management
 - Product reviews
 - (Fake) story locations presented on a map
-- The ability to run the whole thing from Docker
 
 ## Getting Started
 
@@ -20,11 +19,16 @@ Please ensure that [NodeJS](https://nodejs.org/en) and [Docker Desktop](https://
 
 ### Run MongoDB
 
-Change to the root of the project and run `docker compose up`.
+From the project root, run:
+
+```bash
+cd ./mongo
+docker compose up
+```
 
 ### Run The NodeJS Backend
 
-Edit the values in `./server/.env.example`. Then rename the file to `.env`.
+Edit the values in `./server/.env.example`. Then rename the file to `.env.dev`.
 
 Then run the following:
 
@@ -43,6 +47,20 @@ npm install
 npm run dev`
 
 The website should now be accessible from http://localhost:3000.
+
+## Running from Docker
+
+I've gotten this to run in docker now.
+
+Make sure you have specified the correct './server/.env.prod' file before continuing. The DB_URL variable must specify the name of the mongo container.
+
+From project root:
+
+```bash
+docker build -t moonbeans/frontend ./app
+docker build -t moonbeans/backend ./server
+docker compose up
+```
 
 ## API
 
