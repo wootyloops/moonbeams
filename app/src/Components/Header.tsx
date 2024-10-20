@@ -1,4 +1,3 @@
-import React from 'react'
 import Nav from './Nav'
 import { Link } from 'react-router-dom'
 import imgMoon from '../assets/moon.svg'

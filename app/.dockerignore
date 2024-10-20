@@ -1,0 +1,12 @@
+./node_modules
+./dist
+Dockerfile
+.dockerignore
+docker-compose.yml
+README.md
+.gitignore
+./public
+./py
+.git
+.DS_Store
+*.example
