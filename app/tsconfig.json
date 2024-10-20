@@ -10,6 +10,8 @@
       "node_modules/@types"
     ],
     "strict": true,
-    "lib": ["ESNext"]
+    "lib": ["ESNext"],
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   }
 }

@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: moonbeans/react:latest
+    image: moonbeans/frontend:latest
     build: ./app
     working_dir: /app
     environment:
@@ -8,17 +8,17 @@ services:
     ports: 
       - "3000:3000"
   backend:
-    image: moonbeans/node:latest
+    image: moonbeans/backend:latest
     build: ./server
-    working_dir: ./server
     environment:
       - NODE_ENV=production
     ports: 
       - "5001:5001"
+    networks:
+      - internal
   mongodb:
-    image: moonbeans/mongo:latest
+    image: mongo:latest
     build: ./mongo
-    working_dir: ./mongo
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
@@ -29,5 +29,9 @@ services:
       - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     ports:
       - 27017:27017
+    networks:
+      - internal
 volumes:
   mongo_dbs:
+networks:
+  internal:

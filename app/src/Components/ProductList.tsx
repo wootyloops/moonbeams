@@ -1,6 +1,5 @@
 import React from 'react';
-import { useState, useEffect, FunctionComponent, PropsWithChildren } from 'react';
-import { TProduct, IProduct } from '../types/product-types';
+import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 
 

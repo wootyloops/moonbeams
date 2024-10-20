@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { IProduct } from '../types/product-types';
 import { Link } from 'react-router-dom';
 import imgDefaultProduct from '../assets/products/default.png';

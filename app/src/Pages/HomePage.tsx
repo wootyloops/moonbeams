@@ -1,4 +1,3 @@
-import React from 'react'
 import imgCafe from '../assets/cafe.png'
 
 const HomePage = () => {

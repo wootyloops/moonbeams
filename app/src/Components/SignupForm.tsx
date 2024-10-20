@@ -1,4 +1,3 @@
-import React from 'react'
 import { handleError, handleSuccess } from '../Functions/FormHelpers'
 
 const SignupForm = () => {
