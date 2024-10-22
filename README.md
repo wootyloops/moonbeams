@@ -28,7 +28,7 @@ docker compose up
 
 ### Run The NodeJS Backend
 
-Edit the values in `./server/.env.example`. Then rename the file to `.env.dev`.
+Edit the values in `./server/.env.example`. Then rename the file to `.dev.env`.
 
 Then run the following:
 

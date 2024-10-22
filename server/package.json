@@ -4,8 +4,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --env-file=.env.prod server",
-    "dev": "node --watch --env-file=.env.dev server"
+    "start": "node --env-file=.prod.env server",
+    "dev": "node --watch --env-file=.dev.env server"
   },
   "keywords": [],
   "author": "nickb",
